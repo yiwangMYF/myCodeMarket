@@ -1,7 +1,9 @@
 package cn.excutors;
 
 import javax.servlet.ServletRequest;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.concurrent.Callable;
 
 /**
@@ -28,7 +30,9 @@ public class Task implements Callable<Result>{
         Result result=new Result();
         result.setCode("1");
         result.setMessage("成功！");
-        result.setData(this.request.getRemoteHost());
+        List<String> data=new ArrayList<>(2);
+        data.add(this.request.getRemoteHost());
+        result.setData(data);
         return result;
     }
 }

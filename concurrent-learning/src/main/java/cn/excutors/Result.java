@@ -1,12 +1,15 @@
 package cn.excutors;
 
+import java.io.Serializable;
+import java.util.List;
+
 /**
  * @Description 线程执行结果
  * @Author myf
  * @CreateDate 2020/12/7 16:34
  * @Version 1.0
  **/
-public class Result<T> {
+public class Result<T> implements Serializable{
     private String code;
     private String message;
     private T data;
@@ -34,7 +37,6 @@ public class Result<T> {
     public void setData(T data) {
         this.data = data;
     }
-
 
     @Override
     public String toString() {

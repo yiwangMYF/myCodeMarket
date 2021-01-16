@@ -12,6 +12,7 @@ import java.util.concurrent.*;
  * @CreateDate 2020/12/7 17:22
  * @Version 1.0
  **/
+@WebListener
 public class RequestListener implements ServletRequestListener {
     static {
         System.out.println("-------我被加载了---------");
