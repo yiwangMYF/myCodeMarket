@@ -15,6 +15,7 @@ import org.springframework.stereotype.Repository;
  **/
 @Mapper
 @CacheConfig(cacheNames = "userCache")
+
 public interface UserMapper {
     @Select("select * from user where id=#{id}")
     @Cacheable
