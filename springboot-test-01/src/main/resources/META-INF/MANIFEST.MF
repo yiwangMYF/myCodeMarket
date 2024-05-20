@@ -16,5 +16,5 @@ Class-Path: logback-classic-1.2.3.jar spring-aop-5.0.7.RELEASE.jar spr
  idator-6.0.10.Final.jar spring-boot-autoconfigure-2.0.3.RELEASE.jar j
  ackson-core-2.9.6.jar spring-webmvc-5.0.7.RELEASE.jar spring-boot-sta
  rter-tomcat-2.0.3.RELEASE.jar
-Main-Class: MyApplication
+Main-Class: cn.MyApplication
 

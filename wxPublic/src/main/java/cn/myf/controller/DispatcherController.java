@@ -5,7 +5,6 @@ import cn.myf.utils.CheckUtil;
 import cn.myf.utils.HttpClientUtil;
 import cn.myf.utils.XmlUtils;
 import com.alibaba.fastjson.JSONObject;
-import com.fasterxml.jackson.databind.util.JSONPObject;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,10 +14,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.PrintWriter;
-import java.util.Date;
 import java.util.Map;
 
 /**
+ * 微信服务器消息转发接口
  * @Description 微信服务器消息转发接口
  * @Author myf
  * @CreateDate 2021/1/5 18:49
