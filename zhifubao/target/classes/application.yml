@@ -1,9 +1,0 @@
-
-logging:
-  level:
-    root: info
-    cn.myf.controller: debug
-spring:
-  thymeleaf:
-    mode: HTML
-
