@@ -16,7 +16,7 @@ import org.springframework.cache.annotation.EnableCaching;
 @MapperScan("cn.mapper")
 // @EnableJms
 public class MyApplication {
-    public static void main(String[] args) throws InterruptedException {
+    public static void main(String[] args) {
         SpringApplication.run(MyApplication.class, args);
 
     }

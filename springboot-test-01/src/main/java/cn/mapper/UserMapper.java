@@ -3,6 +3,8 @@ package cn.mapper;
 import cn.entity.User;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 public interface UserMapper {
     int deleteByPrimaryKey(String id);
 
@@ -18,8 +20,15 @@ public interface UserMapper {
 
     /**
      * 根据用户名查找用户信息
+     *
      * @param name
      * @return
      */
-    public User getUserByName(@Param("name") String name);
+    User getUserByName(@Param("name") String name);
+
+    /**
+     * 查询所有用户
+     * @return
+     */
+    List<User> selectAll();
 }

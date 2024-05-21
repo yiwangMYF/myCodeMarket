@@ -62,4 +62,10 @@
     <include refid="Base_Column_List"/>
     FROM user where name=#{name}
   </select>
+
+  <select id="selectAll" resultType="cn.entity.User">
+    select * from user
+  </select>
+
+
 </mapper>
