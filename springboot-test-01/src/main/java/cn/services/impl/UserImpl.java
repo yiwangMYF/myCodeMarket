@@ -18,6 +18,7 @@ import java.time.temporal.TemporalAdjusters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
@@ -53,8 +54,8 @@ public class UserImpl implements IUser {
     private List<List<Object>> dealExportData(List<User> userList) {
         List<List<Object>> collect = userList.stream().map(user -> {
             List<Object> list = new ArrayList<Object>();
-            list.add(BeanUtil.getFieldValue(user,"id"));
-            list.add(BeanUtil.getFieldValue(user,"name"));
+            Map<String, Object> map = BeanUtil.beanToMap(user);
+            list.addAll(map.values());
             addMonthData(list);
             return list;
         }).collect(Collectors.toList());
