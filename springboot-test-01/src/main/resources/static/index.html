@@ -3,9 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
 <h1 style="color: green">您好 !!!</h1>
+
+<div>
+    <div id="qrcode"></div>
+    <button onclick="downloadQrCode()">下载二维码</button>
+    <button onclick="viewQrCode()">查看二维码</button>
+    <button onclick="printDiv()">打印二维码</button>
+</div>
+
+<script>
+    function downloadQrCode() {
+        $.ajax({
+            url: '/user/getQrCode',  // 你的服务器端接口地址
+            type: 'GET',          // 请求类型，可以是 GET 或 POST
+            dataType: 'json',     // 响应数据类型，这里是 JSON 格式
+            success: function(data) {
+                console.log(data);
+                var link = document.createElement("a");
+                link.href = data.data.src;
+                link.download="a.png";
+                document.body.appendChild(link); // 将 <a> 元素添加到 DOM 中
+                link.click(); // 触发点击事件
+                document.body.removeChild(link);
+            },
+            error: function(xhr, status, error) {
+                // 请求失败时的回调函数
+                console.error('AJAX request failed:', status, error);
+            }
+        });
+    }
+
+    function viewQrCode() {
+        $.ajax({
+            url: '/user/getQrCode',  // 你的服务器端接口地址
+            type: 'GET',          // 请求类型，可以是 GET 或 POST
+            dataType: 'json',     // 响应数据类型，这里是 JSON 格式
+            success: function(data) {
+                console.log(data);
+                var qrCodeImg = document.createElement("img");
+                qrCodeImg.src = data.data.src;
+                document.getElementById("qrcode").appendChild(qrCodeImg);
+            },
+            error: function(xhr, status, error) {
+                // 请求失败时的回调函数
+                console.error('AJAX request failed:', status, error);
+            }
+        });
+
+    }
+
+    function printDiv() {
+        // 打印可打印区域
+        var printContents = document.getElementById("qrcode").innerHTML;
+        var originalContents = document.body.innerHTML;
+        document.body.innerHTML = printContents;
+        window.print();
+        document.body.innerHTML = originalContents;
+    }
+</script>
+
 
 </body>
 </html>

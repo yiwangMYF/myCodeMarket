@@ -34,7 +34,7 @@ public class ExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler(Exception.class)
     public ModelAndView exceptionHandle(HttpServletRequest request,Exception e) throws MessagingException {
-        logger.info("===================系统发生异常===============");
+        logger.error("===================系统发生异常===============:",e);
         String requestURI = request.getRequestURI();
         StringBuilder content = new StringBuilder();
         content.append("请求地址："+requestURI+"\n")
